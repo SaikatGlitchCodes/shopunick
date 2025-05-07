@@ -16,7 +16,8 @@ const fetchProducts = async () => {
     return [];
 }
 
-const Card = ({ image, title, description, price }) => {
+const Card = (data) => {
+  const { title, description, price, image } = data;
     const displayCard = document.createElement('div');
     displayCard.classList.add('card', 'h-96', 'w-64', 'rounded-2xl', 'border-[1px]', 'border-black', 'p-4', 'flex', 'flex-col', 'justify-between');
     const imageOrText = image ? image : 'https://motobros.com/wp-content/uploads/2024/09/no-image.jpeg';
@@ -29,9 +30,9 @@ const Card = ({ image, title, description, price }) => {
             <p class="text-sm clamp">
              ${description}
             </p>
-            <p class="text-lg font-bold">${price}</p>
+            <p class="text-lg font-bold">$ ${price}</p>
             <div class="flex justify-between items-center">
-              <button class="bg-black text-white text-xs rounded-full px-4 py-1">
+              <button  class="add-to-cart bg-black text-white text-xs rounded-full px-4 py-1">
                 Add to Cart
               </button>
               <button
@@ -40,6 +41,10 @@ const Card = ({ image, title, description, price }) => {
                 View Details
               </button>
             </div>`
+    const addToCartButton = displayCard.querySelector('.add-to-cart'); 
+    addToCartButton.addEventListener('click', () => {
+        addToCart(data);
+    });       
     return displayCard;
 }
 
@@ -60,7 +65,6 @@ const renderProducts = async () => {
 
 renderProducts();
 
-
 search.addEventListener('input', (event) => {
     const searchTerm = event.target.value.toLowerCase();
     const shopCards = document.getElementById('shopCards');
@@ -78,3 +82,8 @@ search.addEventListener('input', (event) => {
         }
     });
 });
+
+function addToCart(productData) {
+  localStorage.setItem('cart', JSON.stringify(productData));
+}
+

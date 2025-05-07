@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopunick cart</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css"
+    />
+  </head>
+  <body>
+    <nav class="flex justify-between items-center p-4 px-8">
+      <div class="flex items-center">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/009/663/149/non_2x/thunder-icon-transparent-free-png.png"
+          class="h-16"
+          alt=""
+        />
+        <h1 class="text-2xl">Shopunick house</h1>
+      </div>
+      <ul class="flex space-x-7">
+        <li>Home</li>
+        <li>Products</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+      <i id="themebtn" class="fi fi-rs-brightness"></i>
+      <a
+        href="./cart.html"
+        class="w-26 px-4 flex justify-between items-center rounded-full py-1 border-black border-[1px]"
+      >
+        <span>0</span><i class="fi fi-sr-shopping-cart text-lg"></i>
+      </a>
+    </nav>
+
+    <div id="cartContainer" class="cartContainer">
+
+    </div>
+
+    <script src="./theme.js"></script>
+    <script src="./cart.js"></script>
+  </body>
+</html>

@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css"
     />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       .ab-center {
@@ -24,7 +25,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="bg-black text-white">
     <nav class="flex justify-between items-center p-4 px-8">
       <div class="flex items-center">
         <img
@@ -40,11 +41,13 @@
         <li>About</li>
         <li>Contact</li>
       </ul>
-      <button
+      <i id="themebtn" class="fi fi-rs-brightness"></i>
+      <a
+        href="./cart.html"
         class="w-26 px-4 flex justify-between items-center rounded-full py-1 border-black border-[1px]"
       >
         <span>0</span><i class="fi fi-sr-shopping-cart text-lg"></i>
-      </button>
+      </a>
     </nav>
     <div class="hero h-97 bg-black relative overflow-hidden">
       <img
@@ -58,21 +61,28 @@
         alt=""
       />
     </div>
-    <div id="filter_section" class="flex justify-between items-center p-4 px-8 sticky top-0 bg-white">
+    <div
+      id="filter_section"
+      class="flex justify-between items-center p-4 px-8 sticky top-0 bg-white"
+    >
       <h1 class="text-lg">Products</h1>
-      <input type="text" id="search" placeholder="Search" class="border-2 border-black rounded-full px-4 py-1 w-96" />
+      <input
+        type="text"
+        id="search"
+        placeholder="Search"
+        class="border-2 border-black rounded-full px-4 py-1 w-96"
+      />
       <div class="flex space-x-4">
         <button class="bg-black text-white rounded-full px-4 py-1">
           Filter
         </button>
-        <button class="bg-black text-white rounded-full px-4 py-1">
-          Sort
-        </button>
+        <button class="bg-black text-white rounded-full px-4 py-1">Sort</button>
       </div>
     </div>
     <div id="shopCards" class="flex p-5 px-9 flex-wrap justify-center gap-4">
       <!-- Cards will be generated here -->
     </div>
     <script src="./script.js"></script>
+    <script src="./theme.js"></script>
   </body>
 </html>
