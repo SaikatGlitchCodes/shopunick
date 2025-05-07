@@ -1,3 +1,9 @@
+const search = document.getElementById('search');
+const filter_section = document.getElementById('filter_section').offsetTop;
+search.addEventListener('focusin', () => {
+    window.scrollTo({ top: filter_section, behavior: 'smooth' });
+});
+
 const fetchProducts = async () => {
     try {
         const response = await fetch('https://dummyjson.com/products');
@@ -39,8 +45,8 @@ const Card = ({ image, title, description, price }) => {
 
 const renderProducts = async () => {
     const shopCards = document.getElementById('shopCards');
-    const products =await fetchProducts();
-    console.log(products)
+    const products = await fetchProducts();
+    
     products.forEach(product => {
         const card = Card({
             title: product.title,
@@ -50,7 +56,25 @@ const renderProducts = async () => {
         });
         shopCards.appendChild(card);
     });
-
 }
 
 renderProducts();
+
+
+search.addEventListener('input', (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    const shopCards = document.getElementById('shopCards');
+    const products = Array.from(shopCards.children);
+    console.log(products);
+
+    products.forEach(product => {
+        const title = product.querySelector('h1').textContent.toLowerCase();
+        const description = product.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+});
