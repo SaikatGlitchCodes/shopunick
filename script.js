@@ -84,6 +84,11 @@ search.addEventListener('input', (event) => {
 });
 
 function addToCart(productData) {
+  document.getElementById('notify_text').classList.remove('hidden');
+  setTimeout(() => {
+    document.getElementById('notify_text').classList.add('hidden');
+  }, 1500);
+
   const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
   document.getElementById('no_of_items').innerText = existingCart.length + 1;
   localStorage.setItem('cart', JSON.stringify([productData, ...existingCart]));
@@ -91,3 +96,28 @@ function addToCart(productData) {
 
 document.getElementById('no_of_items').innerText = JSON.parse(localStorage.getItem('cart'))?.length || 0;
 // setItem getItem
+
+class CardClass {
+  constructor(item1, item2){
+    this.item1 = item1;
+    this.item2 = item2;
+    console.log(item1, item2);
+  }
+}
+
+new CardClass('parleG', 'parleG2');
+
+function CardFunction(item1, item2){
+  console.log(item1, item2);
+}
+
+CardFunction('parleG', 'parleG2');
+
+
+const sale_time = document.getElementById('sale_time');
+
+
+setInterval(()=>{
+  sale_time.innerText = new Date().toLocaleTimeString();
+}, 1000);
+

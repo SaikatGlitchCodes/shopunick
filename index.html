@@ -49,6 +49,10 @@
         <span id="no_of_items">0</span><i class="fi fi-sr-shopping-cart text-lg"></i>
       </a>
     </nav>
+    <div class="flex flex-wrap justify-center bg-black text-white items-center py-4">
+      <h1>Summer sale is on 🎉</h1>
+      <h1 id="sale_time" class="text-lg ms-4"></h1>
+    </div>
     <div class="hero h-97 bg-black relative overflow-hidden">
       <img
         class="h-full absolute z-[100] ab-center"
@@ -81,6 +85,10 @@
     </div>
     <div id="shopCards" class="flex p-5 px-9 flex-wrap justify-center gap-4">
       <!-- Cards will be generated here -->
+    </div>
+    <div id="notify_text" class="notify h-16 w-64 bg-black text-white flex justify-center items-center rounded-lg fixed bottom-5 right-5 hidden">
+      <i class="fi fi-rs-check"></i>
+      <span  class="ms-2">Added to cart</span>
     </div>
     <script src="./script.js"></script>
     <script src="./theme.js"></script>

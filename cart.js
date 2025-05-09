@@ -23,7 +23,10 @@ cart.forEach((item, index) => {
 })
 
 const total_price = document.getElementById('total_price');
-const total = cart.reduce((acc, item) => acc + item.price, 0);
+let total = 0;
+cart.forEach((item)=> {
+  total += item.price;
+})
 total_price.innerHTML = `
     <h2 class="text-lg">Total Price: $ ${total.toFixed(2)}</h2>
     <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" id="checkoutBtn">Checkout</button>
@@ -35,3 +38,10 @@ function deleteItem(index) {
   localStorage.setItem('cart', JSON.stringify(cart));
   window.location.reload();
 }
+
+const checkoutBtn = document.getElementById('checkoutBtn');
+checkoutBtn.addEventListener('click', () => {
+  alert('Thank you for your purchase!');
+  localStorage.setItem('cart', JSON.stringify([]));
+  window.location.reload();
+})
