@@ -84,6 +84,10 @@ search.addEventListener('input', (event) => {
 });
 
 function addToCart(productData) {
-  localStorage.setItem('cart', JSON.stringify(productData));
+  const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('no_of_items').innerText = existingCart.length + 1;
+  localStorage.setItem('cart', JSON.stringify([productData, ...existingCart]));
 }
 
+document.getElementById('no_of_items').innerText = JSON.parse(localStorage.getItem('cart'))?.length || 0;
+// setItem getItem
